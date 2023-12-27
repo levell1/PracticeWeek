@@ -27,7 +27,6 @@ public class InputMove : MonoBehaviour
     {
         if (IsGrounded() && JumpCount != 1)
         {
-            Debug.Log("3");
             JumpCount = 1;
         }
     }
@@ -82,21 +81,12 @@ public class InputMove : MonoBehaviour
 
         for (int i = 0; i < rays.Length; i++)
         {
-            if (Physics.Raycast(rays[i], 0.1f, groundLayerMask))
+            if (Physics.Raycast(rays[i], 0.2f, groundLayerMask))
             {
                 return true;
             }
         }
 
         return false;
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position + (transform.forward * 0.2f), Vector3.down);
-        Gizmos.DrawRay(transform.position + (-transform.forward * 0.2f), Vector3.down);
-        Gizmos.DrawRay(transform.position + (transform.right * 0.2f), Vector3.down);
-        Gizmos.DrawRay(transform.position + (-transform.right * 0.2f), Vector3.down);
     }
 }

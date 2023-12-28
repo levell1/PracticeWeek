@@ -21,4 +21,5 @@ public class LoadSceneButton : MonoBehaviour
     {
         SceneManager.LoadScene("SecondGameScene");
     }
+
 }

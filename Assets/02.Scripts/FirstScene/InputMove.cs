@@ -1,21 +1,24 @@
 
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputMove : MonoBehaviour
 {
     [Header("Movement")]
-    public float moveSpeed;
-    private Vector2 curMovementInput;
-    public float jumpForce;
-    public LayerMask groundLayerMask;
-    private Vector2 mouseDelta;
-    private int JumpCount = 1;
+    public float MoveSpeed;
+    private Vector2 _curMovementInput;
+    public float JumpForce;
+    public LayerMask GroundLayerMask;
+    private Vector2 _mouseDelta;
+    private int _JumpCount = 1;
 
     [HideInInspector]
     public bool canLook = true;
 
     private Rigidbody _rigidbody;
+
+    public TextMeshProUGUI textMeshPro;
 
     public static InputMove instance;
     private void Awake()
@@ -25,9 +28,9 @@ public class InputMove : MonoBehaviour
     }
     private void Update()
     {
-        if (IsGrounded() && JumpCount != 1)
+        if (IsGrounded() && _JumpCount != 1)
         {
-            JumpCount = 1;
+            _JumpCount = 1;
         }
     }
     private void FixedUpdate()
@@ -38,22 +41,26 @@ public class InputMove : MonoBehaviour
 
     private void Move()
     {
-        Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
-        dir *= moveSpeed;
+        Vector3 dir = transform.forward * _curMovementInput.y + transform.right * _curMovementInput.x;
+        dir *= MoveSpeed;
         dir.y = _rigidbody.velocity.y;
 
         _rigidbody.velocity = dir;
+    }
+
+    private void LateUpdate()
+    {
     }
 
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            curMovementInput = context.ReadValue<Vector2>();
+            _curMovementInput = context.ReadValue<Vector2>();
         }
         else if (context.phase == InputActionPhase.Canceled)
         {
-            curMovementInput = Vector2.zero;
+            _curMovementInput = Vector2.zero;
         }
     }
 
@@ -61,11 +68,19 @@ public class InputMove : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started)
         {
-            if (JumpCount != 0)
+            if (_JumpCount != 0)
             {
-                JumpCount--;
-                _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
+                _JumpCount--;
+                _rigidbody.AddForce(Vector2.up * JumpForce, ForceMode.Impulse);
             }
+        }
+    }
+
+    public void OnInteractInput(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            textMeshPro.gameObject.SetActive(true);
         }
     }
     private bool IsGrounded()
@@ -81,7 +96,7 @@ public class InputMove : MonoBehaviour
 
         for (int i = 0; i < rays.Length; i++)
         {
-            if (Physics.Raycast(rays[i], 0.2f, groundLayerMask))
+            if (Physics.Raycast(rays[i], 0.2f, GroundLayerMask))
             {
                 return true;
             }

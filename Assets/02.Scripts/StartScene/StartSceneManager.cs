@@ -9,6 +9,7 @@ public class StartSceneManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
         Instantiate(MenuUI);
     }
 }

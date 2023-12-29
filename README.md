@@ -1,7 +1,3 @@
-# PracticeWeek
-
-<BR><BR>
-
 <center><H1> PracticeWeek </H1></center>
 <H3> 김종욱 </H3>
 <BR><BR>

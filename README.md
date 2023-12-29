@@ -3,126 +3,58 @@
 <BR><BR>
 
 <center><H1> PracticeWeek </H1></center>
-
-<BR><BR>
-
-<H2> 2조. 김종욱 </H2>
-
+<H3> 김종욱 </H3>
 <BR><BR>
 
 # 계획
-발제를 보고 상점까지를 목표로 대략적인 스크립트와 UI를 만들며 진행 하였습니다.  
-객체지향, JSON, 강의에서 배운 내용(ScriptableObject등)을 사용하는 목표로  개인과제를 시작하였습니다.
-
-
-<br>
-
-> **`필수 과제`**  
-> 1. 메인 화면 구성
-> 2. Status 보기
-> 3. Inventory 보기
-
-<br>
-
-> **`추가 과제`**  
-> 1. 아이템 장착 팝업 업그레이드 
-
-
-
-<br><br>
-
-# 1. 필수요구사항
-
-## 1. 메인 화면 구성
-
-![image](https://github.com/levell1/levell1.github.io/assets/96651722/49d4bc5b-5d1c-45a6-bdcb-56d3f490f38b)   
-> - 좌측 : 이름, 직업, 레벨, exp / maxexp  
-> - 우측 : 스텟, 인벤 버튼
-
-
-**플레이어 정보.JSON**  
-![image](https://github.com/levell1/levell1.github.io/assets/96651722/efaedff8-1a9a-407c-ad80-dafb6b56f9d9)     
-
-
-<br><br>
-
-**stat**
-<details>
-<summary>CharacterStat.cs</summary>
-
-<div class="notice--primary" markdown="1"> 
-
-
-```c#
-
-[System.Serializable]
-public class CharacterStat
-{
-    public string Id;
-    public string Job;
-    public int Level;
-    public int Gold;
-    public int Exp;
-    public int MaxExp;
-    public int Attack;
-    public int Def;
-    public int HP;
-    public int Cri;
-}
-
-```
-</div>
-</details>
-
-<br><br>
-
-**jsonLoad,Save**
-
-<details>
-<summary>SavePlayerData.cs</summary>
-
-<div class="notice--primary" markdown="1"> 
-
-```c#
-using System.IO;
-using UnityEngine;
-
-public class JsonLoad
-{
-    public void SavePlayerData(CharacterStat player)
-    {
-        string jsonData = JsonUtility.ToJson(player, true);
-        string path = Path.Combine(Application.dataPath, "PlayerData.json");
-        File.WriteAllText(path, jsonData);
-    }
-    public CharacterStat LoadPlayerData(CharacterStat player, string json)
-    {
-        string path = Path.Combine(Application.dataPath, json);
-        string jsonData = File.ReadAllText(path);
-        player = JsonUtility.FromJson<CharacterStat>(jsonData);
-        return player;
-    }
-}
-
-
-```
-</div>
-</details>
+> 지금까지 배운 것들을 연습해보고 미숙한 부분을 한번 더 써보는 것을 목표로 진행 하였습니다.  
+> - `Start Scene` : 씬 이동, UI, 버튼 연습  
+> - `First Scene` : 오브젝트 풀링, inputAction, raycast, 연습.  
+> - `Second Scene` : delegate, instantiate 등을 연습해 보았습니다.  
 
 <br><br><br><br><br>
 
-# Play
+
+
+# StartScene
+> 게임 시작시 canvas를 생성하고, 버튼 클릭시 씬 전환.  
+
+![image](https://github.com/levell1/levell1.github.io/assets/96651722/886415f2-c11c-4a4b-9a81-cb14d034609d)  
+
+<br><br>
+
+# FirstScene
+> **Dodge**  
+> - 방향키 WASD  
+> - 점프 Space (이단점프)  
+
+![img1](https://github.com/levell1/levell1.github.io/assets/96651722/5d1027ae-45b6-47e9-a558-f5f8d27bee00)
+
+<br><br>
+
+
+# SecondScene
+> **??**  
+> - E 물건 만들기  
+> - Q 물건 가져가기  
+> - F actionTest  
+
+![image](https://github.com/levell1/levell1.github.io/assets/96651722/886415f2-c11c-4a4b-9a81-cb14d034609d)  
 
 <br><br>
 
 # 느낀점
+자유주제에서 뭘 만들어야할지 고민하는 시간이 많았고,  
+처음 접하는 장르의 게임을 만들때 많은 생각이 필요하다고 느꼈습니다.  
+처음부터 만들때 뭐부터 해야할지? 어떤 것을 해야할지 막막했고,  
+하다보니 많이 부족하다는걸 느꼈습니다.  
 
-**문제점**  
+# 궁금한점.
 
-**궁금한 점**
-> - 
+> - 한건 없지만.. 수정이 필요한 부분들이 어디인지 알고 싶습니다..
+> - 사용된 ObjectPool, action에서 어떤문제가 있는지 알고싶습니다.
 
-**봐주셔서 감사합니다.**
+**감사합니다.**
 
 
 

@@ -18,7 +18,6 @@ public class InputMove : MonoBehaviour
 
     private Rigidbody _rigidbody;
 
-    public TextMeshProUGUI textMeshPro;
 
     public static InputMove instance;
     private void Awake()
@@ -80,8 +79,9 @@ public class InputMove : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started)
         {
-            textMeshPro.gameObject.SetActive(true);
+            
         }
+        
     }
     private bool IsGrounded()
     {

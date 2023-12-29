@@ -358,6 +358,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 3a9a222c-26ec-43d5-b5ac-d89e5afbfe23
     m_ActionName: Move/Look[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: be2379c9-b4da-421c-be12-7ff5a523b21c
+    m_ActionName: Move/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Move

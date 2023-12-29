@@ -104,7 +104,7 @@ RectTransform:
   - {fileID: 7535216370461261208}
   - {fileID: 8485759992437163730}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -320,6 +320,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inner
       objectReference: {fileID: 0}
+    - target: {fileID: 9179898219031163395, guid: d3951a8745d28f047a44c89625669f03, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: aa67b71995769e5488f83b0a55b33673, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -826,6 +830,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inner2
       objectReference: {fileID: 0}
+    - target: {fileID: 9179898219031163395, guid: d3951a8745d28f047a44c89625669f03, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dc180c59fb0a9c44799c4f57e4659390, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -16,9 +16,11 @@ public class ActionTest : MonoBehaviour
             
             Debug.Log("HP : "+ GameManager.Instance.PlayerData.hp);
     }
+
     public void SteminaUpdate()
     {
             GameManager.Instance.PlayerData.stamina-=1;
+
             Debug.Log("Stemina : " + GameManager.Instance.PlayerData.stamina);
     }
 }
